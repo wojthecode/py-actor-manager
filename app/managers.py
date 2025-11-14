@@ -81,7 +81,7 @@ class ActorManager:
     def _table_exist(query: Cursor, table_name: str) -> bool:
         # Check if table exists
         table_exist = query.execute(
-            f"""
+            """
             SELECT name
             FROM sqlite_master
             WHERE type = 'table'
