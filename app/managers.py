@@ -1,6 +1,6 @@
 import sqlite3
 from sqlite3 import Cursor
-from app.models import Actor
+from models import Actor
 
 
 class ActorManager:
@@ -84,12 +84,12 @@ class ActorManager:
             f"""
             SELECT name
             FROM sqlite_master
-            WHERE type='table'
-            AND name='{table_name}'
-            """
+            WHERE type = 'table'
+            AND name = ?
+            """,
+            (table_name, )
         ).fetchone()
         if table_exist is None:
-            print("No table")
             return False
         return True
 
@@ -104,6 +104,5 @@ class ActorManager:
             (pk, )
         ).fetchone()
         if not record_exist:
-            print("No record")
             return False
         return True
