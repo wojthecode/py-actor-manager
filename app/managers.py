@@ -18,12 +18,14 @@ class ActorManager:
                 query.execute(
                     f"""
                     CREATE TABLE {self.table_name} (
-                    ID INTEGER PRIMARY KEY AUTOINCREMENT, first_name VARCHAR(100), last_name VARCHAR(100))
+                    ID INTEGER PRIMARY KEY AUTOINCREMENT,
+                    first_name VARCHAR(100),
+                    last_name VARCHAR(100))
                     """
                 )
             query.execute(
                 f"""
-                INSERT INTO {self.table_name} (first_name, last_name) 
+                INSERT INTO {self.table_name} (first_name, last_name)
                 VALUES ('{first_name}', '{last_name}')
                 """
             )
@@ -55,7 +57,8 @@ class ActorManager:
                     query.execute(
                         f"""
                         UPDATE {self.table_name}
-                        SET first_name = '{new_first_name}', last_name = '{new_last_name}'
+                        SET first_name = '{new_first_name}',
+                        last_name = '{new_last_name}'
                         WHERE id={pk}
                         """
                     )
@@ -81,9 +84,9 @@ class ActorManager:
         # Check if table exists
         table_exist = query.execute(
             f"""
-            SELECT name 
-            FROM sqlite_master 
-            WHERE type='table' 
+            SELECT name
+            FROM sqlite_master
+            WHERE type='table'
             AND name='{table_name}'
             """
         ).fetchall()
