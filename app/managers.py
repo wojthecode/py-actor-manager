@@ -1,6 +1,6 @@
 import sqlite3
 from sqlite3 import Cursor
-from models import Actor
+from app.models import Actor
 
 
 class ActorManager:
